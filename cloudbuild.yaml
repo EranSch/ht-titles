@@ -1,16 +1,16 @@
 steps:
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['init']
-    id: 'LFS: Init'
+    id: 'Git: init repo'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['remote', 'add', 'origin', '$_GITHUB_REPO_ADDRESS']
-    id: 'LFS: Add Origin'
+    id: 'Git: Add Origin'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
-    args: ['fetch']
-    id: 'LFS: Fetch'
+    args: ['fetch --all']
+    id: 'Git: Fetch'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['reset', '--soft', 'origin/$BRANCH_NAME']
-    id: 'LFS: Reset'
+    id: 'Git: Reset'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['lfs', 'pull']
     id: 'LFS: Pull'

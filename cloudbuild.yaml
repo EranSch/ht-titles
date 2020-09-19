@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['init']
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
-    args: ['remote', 'add', 'origin', '[REPO_ADDRESS]']
+    args: ['remote', 'add', 'origin', '$_GITHUB_REPO_ADDRESS']
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['fetch']
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
@@ -49,6 +49,7 @@ substitutions:
   _DEPLOY_REGION: us-east1
   _GCR_HOSTNAME: us.gcr.io
   _PLATFORM: managed
+  _GITHUB_REPO_ADDRESS: git@github.com:EranSch/ht-titles.git
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed

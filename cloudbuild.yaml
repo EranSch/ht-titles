@@ -1,14 +1,19 @@
 steps:
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['init']
+    id: 'LFS: Init'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['remote', 'add', 'origin', '$_GITHUB_REPO_ADDRESS']
+    id: 'LFS: Add Origin'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['fetch']
+    id: 'LFS: Fetch'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['reset', '--soft', 'origin/$BRANCH_NAME']
+    id: 'LFS: Reset'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['lfs', 'fetch']
+    id: 'LFS: Fetch'
   - name: gcr.io/cloud-builders/docker
     args:
       - build

@@ -38,18 +38,18 @@ steps:
       - '--quiet'
     id: Deploy
     entrypoint: gcloud
-  images:
-    - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
-  options:
-    substitutionOption: ALLOW_LOOSE
-  substitutions:
-    _LABELS: gcb-trigger-id=5b3c076a-6cd3-4852-81c9-f6d4bd52defa
-    _TRIGGER_ID: 5b3c076a-6cd3-4852-81c9-f6d4bd52defa
-    _SERVICE_NAME: a-real-news-site
-    _DEPLOY_REGION: us-east1
-    _GCR_HOSTNAME: us.gcr.io
-    _PLATFORM: managed
-  tags:
-    - gcp-cloud-build-deploy-cloud-run
-    - gcp-cloud-build-deploy-cloud-run-managed
-    - a-real-news-site
+images:
+  - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+options:
+  substitutionOption: ALLOW_LOOSE
+substitutions:
+  _LABELS: gcb-trigger-id=5b3c076a-6cd3-4852-81c9-f6d4bd52defa
+  _TRIGGER_ID: 5b3c076a-6cd3-4852-81c9-f6d4bd52defa
+  _SERVICE_NAME: a-real-news-site
+  _DEPLOY_REGION: us-east1
+  _GCR_HOSTNAME: us.gcr.io
+  _PLATFORM: managed
+tags:
+  - gcp-cloud-build-deploy-cloud-run
+  - gcp-cloud-build-deploy-cloud-run-managed
+  - a-real-news-site

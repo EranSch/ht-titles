@@ -1,6 +1,12 @@
 *.js filter=lfs diff=lfs merge=lfs -text
 *.json filter=lfs diff=lfs merge=lfs -text
 *.lock filter=lfs diff=lfs merge=lfs -text
+*.py filter=lfs diff=lfs merge=lfs -text
+*.fe601630d20e filter=lfs diff=lfs merge=lfs -text
+*.data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
+*.index filter=lfs diff=lfs merge=lfs -text
+*.meta filter=lfs diff=lfs merge=lfs -text
+*.bpe filter=lfs diff=lfs merge=lfs -text
 api/Dockerfile !text !filter !merge !diff
 LICENSE !text !filter !merge !diff
 clean-data !text !filter !merge !diff

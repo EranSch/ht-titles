@@ -1,0 +1,20 @@
+substitutions:
+  _BUCKET: <GCS_BUCKET>
+  _IMAGE: gpt2-api
+steps:
+  - name: 'gcr.io/$PROJECT_ID/git-lfs'
+    args: ['init']
+  - name: 'gcr.io/$PROJECT_ID/git-lfs'
+    args: ['remote', 'add', 'origin', '[REPO_ADDRESS]']
+  - name: 'gcr.io/$PROJECT_ID/git-lfs'
+    args: ['fetch']
+  - name: 'gcr.io/$PROJECT_ID/git-lfs'
+    args: ['reset', '--soft', 'origin/$BRANCH_NAME']
+  - name: 'gcr.io/$PROJECT_ID/git-lfs'
+  args: ['lfs', 'fetch']
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ['-m', 'cp', '-r', 'gs://$_BUCKET', '/workspace']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/$_IMAGE', '/workspace/$_BUCKET' ]
+images:
+  - gcr.io/$PROJECT_ID/$_IMAGE

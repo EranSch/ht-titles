@@ -1,7 +1,10 @@
 steps:
   - name: 'alpine'
-    args: ['rm', '-rf', '*', '.*']
-    id: 'Clean Directory'
+    args: ['rm', '-rf', '.*']
+    id: 'Clean Directory 1'
+  - name: 'alpine'
+    args: ['rm', '-rf', '*']
+    id: 'Clean Directory 2'
   - name: 'alpine'
     args: ['ls', '-lah']
     id: 'List Directory'

@@ -6,7 +6,7 @@ steps:
     args: ['remote', 'add', 'origin', '$_GITHUB_REPO_ADDRESS']
     id: 'Git: Add Origin'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
-    args: ['fetch --all']
+    args: ['fetch']
     id: 'Git: Fetch'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['reset', '--soft', 'origin/$BRANCH_NAME']

@@ -2,6 +2,9 @@ steps:
   - name: 'alpine'
     args: ['rm', '-rf', '*', '.*']
     id: 'Clean Directory'
+  - name: 'alpine'
+    args: ['ls', '-lah']
+    id: 'List Directory'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['init']
     id: 'Git: init repo'
@@ -11,9 +14,6 @@ steps:
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['fetch']
     id: 'Git: Fetch'
-  - name: 'gcr.io/$PROJECT_ID/git-lfs'
-    args: ['reset', '--hard']
-    id: 'Git: Reset'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['checkout', 'origin/$BRANCH_NAME']
     id: 'Git: Checkout'

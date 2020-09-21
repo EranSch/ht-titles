@@ -1,6 +1,7 @@
 steps:
-  - name: 'bash'
-    args: ['rm -rf', '*', '.*']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args: ['rm', '-rf', '*', '.*']
     id: 'Clean Directory'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['init']

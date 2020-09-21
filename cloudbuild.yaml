@@ -12,7 +12,7 @@ steps:
     args: ['fetch']
     id: 'Git: Fetch'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
-    args: ['git', 'clean', '-d', '-f', '.']
+    args: ['clean', '-d', '-f', '.']
     id: 'Clean Directory'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['checkout', 'origin/$BRANCH_NAME']

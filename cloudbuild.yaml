@@ -9,8 +9,8 @@ steps:
     args: ['fetch']
     id: 'Git: Fetch'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
-    args: ['reset', '--soft', 'origin/$BRANCH_NAME']
-    id: 'Git: Reset'
+    args: ['checkout', 'origin/$BRANCH_NAME']
+    id: 'Git: Checkout'
   - name: 'gcr.io/$PROJECT_ID/git-lfs'
     args: ['lfs', 'pull']
     id: 'LFS: Pull'
